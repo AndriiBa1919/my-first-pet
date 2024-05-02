@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --swiper-theme-color: #a88435;
+  --swiper-navigation-size: 30px;
+  --swiper-navigation-sides-offset: 40px;
+  --swiper-pagination-bottom: 20px;
+  --swiper-pagination-color: #e0b65b;
+  --swiper-pagination-bullet-inactive-color: #a88435;
+  --swiper-pagination-bullet-inactive-opacity: 0.6;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.slider {
+  height: 100vh;
+}
+
+.slider .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide__content {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.swiper-slide-active .slide__content {
+  opacity: 1;
+}
+
+.slide__content h2 {
+  font-size: calc(var(--index) * 4);
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * 2);
+  margin-bottom: calc(var(--index) * 2.5);
+  position: relative;
+}
+
+.slide__content h2::after {
+  content: " ";
+  height: 2px;
+  width: 40%;
+  background-color: rgba(255 255 255 / 0.5);
+  position: absolute;
+  left: 30%;
+  bottom: calc(var(--index) * -1);
+}
+
+.slide__content p {
+  font-size: calc(var(--index) * 1);
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * 1.5);
+  color: rgba(255 255 255 / 0.8);
+  margin-bottom: calc(var(--index) * 2);
+}
+
+button {
+  --button-color: rgba(255 255 255 / 0.8);
+  padding: 10px 40px;
+  font-size: 15.5px;
+  border-radius: 10em;
+  background-color: transparent;
+  border: 1px solid var(--button-color);
+  color: var(--button-color);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+}
+
+.slider-navigation > * {
+  border: 1.5px solid var(--swiper-theme-color);
+  border-radius: 10em;
+  width: 50px;
+  height: 50px;
+}
+
+.video-background {
+  position: fixed;
+  /* background-size: contain; */
+  width: 115%;
+  height: 115%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  transition: opacity 1.5s ease-out;
+}
+
+.video-background.change {
+  opacity: 1;
+}
